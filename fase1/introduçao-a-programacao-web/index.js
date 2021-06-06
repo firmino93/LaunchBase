@@ -2,11 +2,11 @@
 // dar notas aos alunos e envia
 // mensagem de cálculo de média
 
-const alunos = [
+const alunosDaTurmaA = [
 
     {
         nome: "Mayk",
-        nota: 9.8
+        nota: 1.8
     },
 
     {
@@ -17,15 +17,59 @@ const alunos = [
     {
         nome: "fulano",
         nota: 2
+    },
+
+    {
+        nome: "mais um aluno",
+        nota: 10
     }
 ]
 
-console.log(alunos[2])
+const alunosDaTurmaB = [
 
-/*const media = (alunos[0].nota + alunos[1].nota + alunos[2].nota ) / 3
+    {
+        nome: "Cleiton",
+        nota: 10
+    },
 
-if( media > 5 ) {
-    console.log(`a nota foi de ${media} parabéns !`)
-} else {
-    console.log(`a média foi menor que 5`)
-} */
+    {
+        nome: "Robson",
+        nota: 10
+    },
+
+    {
+        nome: "Siclano",
+        nota: 0
+    },
+
+    {
+        nome: "novo aluno",
+        nota: 5
+    }
+]
+
+function calculaMedia (alunos) {
+    let soma = 0
+    for (let i = 0; i < alunos.length; i++ ) {
+        soma = soma + alunos[i].nota
+    }
+    
+    const media = soma / alunos.length
+
+    return media
+}
+
+const media1 = calculaMedia(alunosDaTurmaA)
+const media2 = calculaMedia(alunosDaTurmaB)
+
+function enviaMensagem (media, turma) {
+
+    if( media > 5 ) {
+        console.log(`a média da turma ${turma} foi de ${media} parabéns !`)
+    } else {
+        console.log(`a média da turma ${turma} foi menor que 5`)
+    } 
+}
+
+enviaMensagem(media1, 'turmaA')
+enviaMensagem(media2, 'turmaB')
